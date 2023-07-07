@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,5 +21,30 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        DB::table('extracurriculars')->insert([
+            'name' => 'Bóng đá',
+            'description' =>'Trò chơi đồng đội',
+            'photo' => 'bongda.png',
+        ]);
+        DB::table('extracurriculars')->insert([
+            'name' => 'Bóng rổ',
+            'description' =>'Trò chơi đồng đội',
+            'photo' => 'bongro.png',
+        ]);
+        DB::table('extracurriculars')->insert([
+            'name' => 'Bóng chuyền',
+            'description' =>'Trò chơi đồng đội',
+            'photo' => 'bongchuyen.png',
+        ]);
+        DB::table('extracurriculars')->insert([
+            'name' => 'Bóng bàn',
+            'description' =>'Trò chơi 1-1',
+            'photo' => 'bongban.png',
+        ]);
+        DB::table('extracurriculars')->insert([
+            'name' => 'Cầu lông',
+            'description' =>'Trò chơi 1-1',
+            'photo' => 'caulong.png',
+        ]);
     }
 }
