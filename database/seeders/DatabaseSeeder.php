@@ -25,26 +25,31 @@ class DatabaseSeeder extends Seeder
             'name' => 'Bóng đá',
             'description' =>'Trò chơi đồng đội',
             'photo' => 'bongda.png',
+            'start_at' =>'2023-07-07'
         ]);
         DB::table('extracurriculars')->insert([
             'name' => 'Bóng rổ',
             'description' =>'Trò chơi đồng đội',
             'photo' => 'bongro.png',
+            'start_at' =>'2023-07-12'
         ]);
         DB::table('extracurriculars')->insert([
             'name' => 'Bóng chuyền',
             'description' =>'Trò chơi đồng đội',
             'photo' => 'bongchuyen.png',
+            'start_at' =>'2023-07-24'
         ]);
         DB::table('extracurriculars')->insert([
             'name' => 'Bóng bàn',
             'description' =>'Trò chơi 1-1',
             'photo' => 'bongban.png',
+            'start_at' =>'2023-07-14'
         ]);
         DB::table('extracurriculars')->insert([
             'name' => 'Cầu lông',
             'description' =>'Trò chơi 1-1',
             'photo' => 'caulong.png',
+            'start_at' =>'2023-07-10'
         ]);
     }
 }

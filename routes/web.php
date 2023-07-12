@@ -14,5 +14,9 @@ use App\Models\Extracurricular;
 |
 */
 
-
+Route::get('/', function () {
+    return view('welcome');
+});
 Route::resource('extracurriculars',ExtracurricularController::class);
+Route::get('/extracurriculars.search',[ExtracurricularController::class, 'search'])->name('extracurriculars.search');
+Route::get('/extracurriculars/newest', [ExtracurricularController::class, 'getNewest'])->name('extracurriculars.newest');
