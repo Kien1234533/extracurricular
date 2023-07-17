@@ -130,17 +130,23 @@ class ExtracurricularController extends Controller
     }
     public function deleteAll(Request $request)
     {
-        print_r($request->ids);
+        $id = $request->ids;
+        dd($id);
     }
     public function search(Request $request)
     {
-        $keyword = $request->input('keyword');
-        $extras = Extracurricular::query()
-            ->where('name', 'like', '%' . $keyword . '%')
-            ->orWhere('description', 'like', '%' . $keyword . '%')
-            ->orWhere('start_at', 'like', '%' . $keyword . '%')
-            ->get();
-        return view('extracurriculars.search', ['extracurriculars' => $extras]);
+        $query = Extracurricular::query();
+        if ($request->ajax()) {
+            $extras = $query
+                ->where('name', 'like', '%' . $request->keyword . '%')
+                ->orWhere('description', 'like', '%' . $request->keyword . '%')
+                ->orWhere('start_at', 'like', '%' . $request->keyword . '%')
+                ->get();
+            return response()->json(['extracurriculars' => $extras]);
+        }else{
+            $extras = $query->get();
+            return view('extracurriculars.index', ['extracurriculars' => $extras]);
+        }
     }
     public function getNewest()
     {
