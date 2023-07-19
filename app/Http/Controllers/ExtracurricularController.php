@@ -16,7 +16,8 @@ class ExtracurricularController extends Controller
     {
         //
         //lay ds tat ca san pham
-        $extracurricular = Extracurricular::paginate(3);
+
+        $extracurricular = Extracurricular::paginate(6);
         return view('extracurriculars.index', ['extracurriculars' => $extracurricular]);
     }
 
@@ -128,11 +129,6 @@ class ExtracurricularController extends Controller
         $extracurricular->delete();
         return redirect()->route('extracurriculars.index')->with('success', 'Delete successFully');
     }
-    public function deleteAll(Request $request)
-    {
-        $id = $request->ids;
-        dd($id);
-    }
     public function search(Request $request)
     {
         $query = Extracurricular::query();
@@ -143,14 +139,27 @@ class ExtracurricularController extends Controller
                 ->orWhere('start_at', 'like', '%' . $request->keyword . '%')
                 ->get();
             return response()->json(['extracurriculars' => $extras]);
-        }else{
+        } else {
             $extras = $query->get();
             return view('extracurriculars.index', ['extracurriculars' => $extras]);
         }
     }
-    public function getNewest()
+    public function getSort(Request $request)
     {
-        $extras = Extracurricular::orderBy('start_at', 'ASC')->get();
-        return response()->json($extras);
+        $sortBy = $request->input('sort_by');
+        if ($sortBy === 'old') {
+            $extras = Extracurricular::orderBy('start_at', 'asc')->get();
+        } else if ($sortBy === 'new') {
+            $extras = Extracurricular::orderBy('start_at', 'desc')->get();
+        } else {
+            $extras = Extracurricular::all();
+        }
+        return response()->json(['extracurriculars' => $extras]);
+    }
+    public function deleteAll(Request $request)
+    {
+        $ids = $request->ids;
+        Extracurricular::whereIn('id', $ids)->delete();
+        return response()->json();
     }
 }

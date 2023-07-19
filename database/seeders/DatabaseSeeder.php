@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Bóng chuyền',
             'description' =>'Trò chơi đồng đội',
             'photo' => 'bongchuyen.png',
-            'start_at' =>'2023-07-24'
+            'start_at' =>'2023-07-02'
         ]);
         DB::table('extracurriculars')->insert([
             'name' => 'Bóng bàn',
@@ -50,6 +50,48 @@ class DatabaseSeeder extends Seeder
             'description' =>'Trò chơi 1-1',
             'photo' => 'caulong.png',
             'start_at' =>'2023-07-10'
+        ]);
+        DB::table('extracurriculars')->insert([
+            'name' => 'Giải toán',
+            'description' =>'Giải các bài toán được đưa ra từ dễ tới khó',
+            'photo' => 'giaitoan.png',
+            'start_at' =>'2023-06-10'
+        ]);
+        DB::table('extracurriculars')->insert([
+            'name' => 'Du lịch',
+            'description' =>'Nâng cao sự hiểu biết',
+            'photo' => 'dulich.png',
+            'start_at' =>'2023-06-22'
+        ]);
+        DB::table('extracurriculars')->insert([
+            'name' => 'Ca hát',
+            'description' =>'Thể hiện tài năng',
+            'photo' => 'cahat.png',
+            'start_at' =>'2023-07-01'
+        ]);
+        DB::table('extracurriculars')->insert([
+            'name' => 'Nhảy múa',
+            'description' =>'Hoạt động hay',
+            'photo' => 'nhaymua.png',
+            'start_at' =>'2023-07-10'
+        ]);
+        DB::table('extracurriculars')->insert([
+            'name' => 'Chạy đua',
+            'description' =>'Trò chơi 1-1',
+            'photo' => 'chaydua.png',
+            'start_at' =>'2023-06-15'
+        ]);
+        DB::table('extracurriculars')->insert([
+            'name' => 'Đấu kiếm',
+            'description' =>'Trò chơi 1-1',
+            'photo' => 'daukiem.png',
+            'start_at' =>'2023-06-30'
+        ]);
+        DB::table('extracurriculars')->insert([
+            'name' => 'Giải đố',
+            'description' =>'Vận dụng trí não',
+            'photo' => 'giaido.png',
+            'start_at' =>'2023-07-17'
         ]);
     }
 }

@@ -19,5 +19,6 @@ Route::get('/', function () {
 });
 Route::resource('extracurriculars',ExtracurricularController::class);
 Route::get('/extracurriculars.search',[ExtracurricularController::class, 'search'])->name('extracurriculars.search');
-Route::get('/extracurriculars/newest', [ExtracurricularController::class, 'getNewest'])->name('extracurriculars.newest');
-Route::post('/extracurriculars.deleteAll', [ExtracurricularController::class, 'deleteAll'])->name('extracurriculars.deleteAll');
+Route::get('/extracurriculars.sort', [ExtracurricularController::class, 'getSort'])->name('extracurriculars.sort');
+Route::delete('/selected-extras', [ExtracurricularController::class, 'deleteAll'])->name('extracurriculars.delete');
+
